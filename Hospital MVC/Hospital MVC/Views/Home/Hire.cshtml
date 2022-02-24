@@ -1,0 +1,75 @@
+﻿@model Hospital_MVC.Models.DoctorsTable;
+@{
+    ViewData["Title"] = "Hire";
+}
+
+<body style="background-image: url(https://cutewallpaper.org/21/1920-x-1080-gif/Animated-GIFs-Animation-on-Behance.gif); background-repeat: no-repeat; background-size: cover; ">
+
+    <h1>Hiring Page</h1>
+
+    <form method="post" asp-action="Hire">
+        <div class="border p-3">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group row">
+                <h2 class="text-info pl-3">New Talent</h2>
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="Doctor_Name">Applicant Name</label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="Doctor_Name" class="form-control" />
+                            <span asp-validation-for="Doctor_Name" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="Department"></label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="Department" class="form-control" />
+                            <span asp-validation-for="Department" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="Floor"></label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="Floor" class="form-control" />
+                            <span asp-validation-for="Floor" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="SSN">SSN</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="password" asp-for="SSN" class="form-control" />
+                            <span asp-validation-for="SSN" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-8 offset-4 row offset-4 col">
+                                <div class="col">
+                                    <input type="submit" class="btn btn-info w-100" value="Create" />
+                                </div>
+                                <div class="col">
+                                    <a asp-action="Index" class="btn btn-success w-100"><i class="fas fa-sign-out-alt"></i> Back</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        @*  *@
+                    </div>
+                </div>
+        </div>
+
+    </form>
+</body>
