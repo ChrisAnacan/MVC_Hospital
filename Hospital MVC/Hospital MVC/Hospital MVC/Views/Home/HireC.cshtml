@@ -1,0 +1,115 @@
+﻿@model Hospital_MVC.Models.CNAs;
+@{
+    ViewData["Title"] = "Hire";
+}
+
+<body style="background-image: url(https://cutewallpaper.org/21/1920-x-1080-gif/Animated-GIFs-Animation-on-Behance.gif); background-repeat: no-repeat; background-size: cover; ">
+
+    <h1>Hiring Page</h1>
+
+    <form method="post" asp-action="HireC">
+        <div class="border p-3">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group row">
+                <h2 class="text-info pl-3">New Talent</h2>
+            </div>
+            <div class="row">
+                <div class="col-8">
+
+
+                    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+                    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+                    <div class="container">
+                        <!-- Trigger the modal with a button -->
+                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Select Job Title</button>
+                        <!-- Modal -->
+                        <div class="modal show" id="myModal" role="dialog">
+                            <div class="modal-dialog">
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Job Titles</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <a href="/Home/Hire">Doctor</a>
+                                        <p> - Requirements: </p>
+                                        <a href="/Home/HireN">Nurse</a>
+                                        <p> - Requirements: </p>
+                                        <a href="/Home/HireC">CNA</a>
+                                        <p> - Requirements: </p>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+
+
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="Name">Applicant Name (CNA)</label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="Department"></label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="Department" class="form-control" />
+                            <span asp-validation-for="Department" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="Floor"></label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="Floor" class="form-control" />
+                            <span asp-validation-for="Floor" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="SSN">SSN</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="password" asp-for="SSN" class="form-control" />
+                            <span asp-validation-for="SSN" class="text-danger"></span>
+                        </div>
+
+
+                    </div>
+                    <div class="col-4">
+                        @*  *@
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-5 offset-3 row offset-2 col">
+                    <div class="col">
+                        <input type="submit" class="btn btn-info w-100" value="Create" />
+                    </div>
+                    <div class="col">
+                        <a asp-action="Doctors" class="btn btn-success w-100"><i class="fas fa-sign-out-alt"></i> Back</a>
+                    </div>
+                </div>
+            </div>
+
+    </form>
+</body>
