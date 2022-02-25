@@ -46,7 +46,7 @@ namespace Hospital_MVC.Controllers
         public IActionResult SearchForm(string Doctor_Name)
         {
             var doctorName = _context.DoctorsTable.Where(doctor => doctor.Doctor_Name.Contains(Doctor_Name)).ToList();
-            return View("Index", doctorName);
+            return View("Doctors", doctorName);
         }
 
         public IActionResult SearchForm2()
@@ -59,7 +59,7 @@ namespace Hospital_MVC.Controllers
         public IActionResult SearchForm2(string Name)
         {
             var nurseName = _context.NursesTable.Where(nurse => nurse.Name.Contains(Name)).ToList();
-            return View("Index", nurseName);
+            return View("Nurses", nurseName);
         }
         
 
