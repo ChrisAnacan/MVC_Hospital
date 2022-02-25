@@ -47,6 +47,12 @@ namespace Hospital_MVC.Controllers
             var docs = await _context.CNAs.ToListAsync();
             return View(docs);
         }
+
+        public async Task<IActionResult> ReviewHire()
+        {
+            var docs = await _context.ApplicantsTable.ToListAsync();
+            return View(docs);
+        }
         public IActionResult About()
         {
             return View();
@@ -259,6 +265,17 @@ namespace Hospital_MVC.Controllers
             }
             else
                 return View(obj);
+        }
+
+        public async Task<IActionResult> CNAs_Fire(int? id)
+        {
+            var c = await _context.CNAs.FindAsync(id);
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+            return View(c);
         }
 
         [HttpPost]
