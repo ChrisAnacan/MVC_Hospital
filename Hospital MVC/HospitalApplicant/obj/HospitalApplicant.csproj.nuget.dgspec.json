@@ -1,0 +1,86 @@
+{
+  "format": 1,
+  "restore": {
+    "A:\\Users\\chris\\source\\repos\\HospitalApplicant\\HospitalApplicant\\HospitalApplicant.csproj": {}
+  },
+  "projects": {
+    "A:\\Users\\chris\\source\\repos\\HospitalApplicant\\HospitalApplicant\\HospitalApplicant.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "A:\\Users\\chris\\source\\repos\\HospitalApplicant\\HospitalApplicant\\HospitalApplicant.csproj",
+        "projectName": "HospitalApplicant",
+        "projectPath": "A:\\Users\\chris\\source\\repos\\HospitalApplicant\\HospitalApplicant\\HospitalApplicant.csproj",
+        "packagesPath": "A:\\Users\\chris\\.nuget\\packages\\",
+        "outputPath": "A:\\Users\\chris\\source\\repos\\HospitalApplicant\\HospitalApplicant\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "A:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "A:\\Users\\chris\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "A:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "A:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.6.3, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "A:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
