@@ -1,0 +1,117 @@
+﻿@model List<DoctorsTable>
+
+<body style="background-image: url(https://cutewallpaper.org/21/1920-x-1080-gif/Animated-GIFs-Animation-on-Behance.gif); background-repeat: no-repeat; background-size: cover; ">
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container">
+
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Doctors">Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Nurses">Nurses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="CNAs">CNAs</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Doctor Name
+                </th>
+                <th>
+                    Department
+                </th>
+                <th>
+                    Floor
+                </th>
+                <th>
+                    SSN
+                </th>
+                <th></th>
+                <th>Edit</th>
+                <th>View</th>
+                <th>Fire</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+
+
+         @(Model.Count() == 0)
+        {
+            <tr>
+               <td>  Name not found in database </td>
+            </tr>
+        }
+
+
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Doctor_Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Department)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Floor)
+                    </td>
+                    <td>
+                        @Html.Raw("\u2022\u2022\u2022\u2022\u2022")
+                    </td>
+
+                    <td>
+
+                    <td class="text-center">
+                        <a asp-action="Edit" class="btn btn-primary" asp-route-id="@item.ID">Change</a>
+                    </td>
+                    <td class="text-center">
+                        <a asp-action="Details" class="btn btn-dark" asp-route-docid="@item.ID">View Details</a>
+                    </td>
+                    <td class="text-center">
+                        <a asp-action="Fire" class="btn btn-warning" asp-route-id="@item.ID">Fire</a>
+                    </td>
+                </tr>
+            }
+            @*
+        {
+            <div class="card" style="width: 18rem;">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        @Html.DisplayFor(ModelItem => item.ID)
+                    </li>
+                    <li class="list-group-item">@Html.DisplayFor(ModelItem => item.Doctor_Name)</li>
+                    <li class="list-group-item">@Html.DisplayFor(ModelItem => item.Department)</li>
+                    <li class="list-group-item">@Html.DisplayFor(ModelItem => item.Floor)</li>
+                    <li class="list-group-item">@Html.Raw("\u2022\u2022\u2022\u2022\u2022")</li>
+                    <li class="list-group-item"><a asp-action="Edit" class="btn btn-primary" asp-route-id="@item.ID">Change</a></li>
+                    <li class="list-group-item"><a asp-action="Details" class="btn btn-dark" asp-route-docid="@item.ID">View Details</a></li>
+                    <li class="list-group-item"><a asp-action="Fire" class="btn btn-warning" asp-route-id="@item.ID">Fire</a></li>
+                </ul>
+                <div class="card-footer">
+                    Card footer
+                </div>
+            </div>
+            <br />
+        }
+            *@
+
+
+
+        </tbody>
+    </table>
+</div>
+</body>
