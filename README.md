@@ -11,4 +11,4 @@ PATCH 1: <br/>
 * Tweaked and modified HomeController methods <br/>
 * Added limitations to Nurse Model <br/>
 * Nurse Table + CNA Table now parse horizontally <br/>
-
+* Updated Search functions that Adwin tweaked to check for validation <br/>
