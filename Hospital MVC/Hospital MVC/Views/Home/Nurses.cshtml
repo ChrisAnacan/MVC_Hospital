@@ -1,5 +1,6 @@
 ﻿@model List<NursesTable>
 
+
 <body style="background-image: url(https://cutewallpaper.org/21/1920-x-1080-gif/Animated-GIFs-Animation-on-Behance.gif); background-repeat: no-repeat; background-size: cover; ">
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -24,10 +25,9 @@
         </nav>
     </header>
 
-    <div class="table-responsive">
+    <div class="card-container">
         @foreach (var item in Model)
         {
-
 
             <div class="card" style="width: 18rem;">
                 <ul class="list-group list-group-flush">
@@ -37,17 +37,22 @@
                     <li class="list-group-item">@Html.DisplayFor(ModelItem => item.Name)</li>
                     <li class="list-group-item">@Html.DisplayFor(ModelItem => item.Department)</li>
                     <li class="list-group-item">Floor: @Html.DisplayFor(ModelItem => item.Floor)</li>
-                    <li class="list-group-item">SSN: @Html.Raw("\u2022\u2022\u2022\u2022\u2022")</li>
+                    @*<li class="list-group-item">SSN: @Html.Raw("\u2022\u2022\u2022\u2022\u2022")</li>*@
+
+                    <li class="list-group-item">Assigned Doctor: @Html.DisplayFor(ModelItem => item.Assigned.Doctor_Name)</li>
+
                     <li class="list-group-item"><a asp-action="Nurses_Edit" class="btn btn-primary" asp-route-id="@item.ID">Change</a></li>
                     <li class="list-group-item"><a asp-action="Nurses_Details" class="btn btn-dark" asp-route-docid="@item.ID">View Details</a></li>
                     <li class="list-group-item"><a asp-action="NursesFire" class="btn btn-warning" asp-route-id="@item.ID">Fire</a></li>
                 </ul>
                 <div class="card-footer">
-                    Card footer
+                    Nurse Data
                 </div>
             </div>
             <br />
         }
+
+
 
 
 

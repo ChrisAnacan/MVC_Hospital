@@ -15,6 +15,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-8">
+
                     <div class="form-group row">
                         <div class="col-sm-3">
                             <label asp-for="Name">Name on File</label>
@@ -23,8 +24,8 @@
                             <input asp-for="Name" class="form-control" />
                             <span asp-validation-for="Name" class="text-danger"></span>
                         </div>
-
                     </div>
+
                     <div class="form-group row">
                         <div class="col-sm-3">
                             <label asp-for="Department"></label>
@@ -33,7 +34,6 @@
                             <input asp-for="Department" class="form-control" />
                             <span asp-validation-for="Department" class="text-danger"></span>
                         </div>
-
                     </div>
 
                     <div class="form-group row">
@@ -44,8 +44,20 @@
                             <input asp-for="Floor" class="form-control" />
                             <span asp-validation-for="Floor" class="text-danger"></span>
                         </div>
-
                     </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-3">
+                            <label asp-for="Assigned.ID">Assigned Doctor</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input asp-for="Assigned.ID" class="form-control" />
+                            <span asp-validation-for="Assigned.ID" class="text-danger"></span>
+                        </div>
+                    </div>
+
+
+
 
                     <div class="form-group row">
                         <div class="col-8 offset-4 row">
@@ -54,7 +66,7 @@
                                 <input type="submit" class="btn btn-outline-danger w-100" value="Update" />
                             </div>
                             <div class="col">
-                                <a asp-action="Index" class="btn btn-outline-secondary w-100"><i class="fas fa-sign-out-alt"></i> Back</a>
+                                <a asp-action="Nurses" class="btn btn-outline-secondary w-100"><i class="fas fa-sign-out-alt"></i> Back</a>
                             </div>
                         </div>
                     </div>

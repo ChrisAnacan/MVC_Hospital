@@ -37,7 +37,7 @@ namespace Hospital_MVC.Controllers
 
         public async Task<IActionResult> Nurses()
         {
-            var docs = await _context.NursesTable.ToListAsync();
+            var docs = await _context.NursesTable.Include(x=>x.Assigned).ToListAsync();
             return View(docs);
 
         }
@@ -82,14 +82,15 @@ namespace Hospital_MVC.Controllers
         [HttpPost]
         public IActionResult HireN(NursesTable obj)
         {
-            if (ModelState.IsValid)
-            {
+            obj.Assigned = _context.DoctorsTable.FirstOrDefault(x => x.ID == obj.Assigned.ID);
+            //if (ModelState.IsValid)
+            //{
                 _context.NursesTable.Add(obj);
                 _context.SaveChanges();
                 return RedirectToAction("Doctors");
-            }
-            else
-                return View(obj);
+            //}
+            //else
+            //    return View(obj);
         }
 
         public IActionResult HireC()
@@ -160,14 +161,16 @@ namespace Hospital_MVC.Controllers
 
         public IActionResult Nurses_Edit(NursesTable obj)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
+            obj.Assigned = _context.DoctorsTable.FirstOrDefault(x => x.ID == obj.Assigned.ID);
+
                 _context.NursesTable.Update(obj);
                 _context.SaveChanges();
-                return RedirectToAction("Nurses_Edit");
-            }
-            else
-                return View(obj);
+                return RedirectToAction("Nurses");
+            //}
+            //else
+            //    return View(obj);
         }
         public async Task<IActionResult> NursesFire(int? id)
         {
@@ -188,7 +191,7 @@ namespace Hospital_MVC.Controllers
             _context.NursesTable.Remove(doc);
             await _context.SaveChangesAsync();
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Doctors));
         }
 
         public async Task<IActionResult> Nurses_Details(int? docid)
