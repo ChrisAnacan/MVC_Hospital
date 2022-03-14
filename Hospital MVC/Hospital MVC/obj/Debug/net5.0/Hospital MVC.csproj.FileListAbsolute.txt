@@ -448,3 +448,7 @@ A:\Users\chris\source\repos\Hospital MVC\Hospital MVC\obj\Debug\net5.0\Razor\Vie
 A:\Users\chris\source\repos\Hospital MVC\Hospital MVC\obj\Debug\net5.0\Razor\Views\Home\SearchForm.cshtml.g.cs
 A:\Users\chris\source\repos\Hospital MVC\Hospital MVC\obj\Debug\net5.0\Razor\Views\Home\SearchForm2.cshtml.g.cs
 A:\Users\chris\source\repos\Hospital MVC\Hospital MVC\obj\Debug\net5.0\Razor\Views\Home\CNAs_Edit.cshtml.g.cs
+A:\Users\chris\source\repos\Hospital MVC\Hospital MVC\obj\Debug\net5.0\Razor\Views\Home\Review_Fire.cshtml.g.cs
+A:\Users\chris\source\repos\Hospital MVC\Hospital MVC\obj\Debug\net5.0\Razor\Views\Home\Login.cshtml.g.cs
+A:\Users\chris\source\repos\Hospital MVC\Hospital MVC\obj\Debug\net5.0\Razor\Views\Home\Register.cshtml.g.cs
+A:\Users\chris\source\repos\Hospital MVC\Hospital MVC\obj\Debug\net5.0\Razor\Views\Shared\_LoginPartial.cshtml.g.cs

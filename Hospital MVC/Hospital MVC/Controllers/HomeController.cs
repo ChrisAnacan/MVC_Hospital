@@ -191,7 +191,7 @@ namespace Hospital_MVC.Controllers
             _context.NursesTable.Remove(doc);
             await _context.SaveChangesAsync();
 
-            return RedirectToAction(nameof(Doctors));
+            return RedirectToAction(nameof(Nurses));
         }
 
         public async Task<IActionResult> Nurses_Details(int? docid)
@@ -234,7 +234,7 @@ namespace Hospital_MVC.Controllers
             _context.DoctorsTable.Remove(doc);
             await _context.SaveChangesAsync();
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Doctors));
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -289,7 +289,7 @@ namespace Hospital_MVC.Controllers
             _context.CNAs.Remove(doc);
             await _context.SaveChangesAsync();
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(CNAs));
         }
 
         public async Task<IActionResult> CNAs_Details(int? docid)
@@ -303,6 +303,29 @@ namespace Hospital_MVC.Controllers
             return View(doc);
         }
 
+        //Residency Applicants
+        public async Task<IActionResult> Review_Fire(int? id)
+        {
+            var r = await _context.CNAs.FindAsync(id);
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+            return View(r);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Review_Fire(int id)
+        {
+            var r = await _context.CNAs.FindAsync(id);
+            _context.CNAs.Remove(r);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(ReviewHire));
+        }
+
         public IActionResult SearchForm()
         {
             return View();
@@ -312,7 +335,13 @@ namespace Hospital_MVC.Controllers
         [HttpPost]
         public IActionResult SearchForm(string Doctor_Name)
         {
-            var doctorName = _context.DoctorsTable.Where(doctor => doctor.Doctor_Name.Contains(Doctor_Name)).ToList();
+            var doctorName = _context.DoctorsTable.Where(doctor => doctor.Doctor_Name.Contains(Doctor_Name));
+
+            if (Doctor_Name == null)
+            {
+                return NotFound("PLEASE ENTER A NAME IN SEARCH FORM");
+            }
+
             return View("Doctors", doctorName);
         }
 
@@ -325,7 +354,13 @@ namespace Hospital_MVC.Controllers
         [HttpPost]
         public IActionResult SearchForm2(string Name)
         {
-            var nurseName = _context.NursesTable.Where(nurse => nurse.Name.Contains(Name)).ToList();
+            var nurseName = _context.NursesTable.Where(nurse => nurse.Name.Contains(Name));
+
+            if (Name == null)
+            {
+                return NotFound("PLEASE ENTER A NAME IN SEARCH FORM");
+            }
+
             return View("Nurses", nurseName);
         }
 

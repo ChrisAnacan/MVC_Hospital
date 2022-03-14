@@ -19,6 +19,5 @@ namespace Hospital_MVC.Models
         public int Floor { get; set; }
         [Required]
         public int SSN { get; set; }
-
     }
 }
