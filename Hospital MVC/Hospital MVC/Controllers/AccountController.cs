@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Hospital_MVC.Data.DTOs;
-using Hospital_MVC.Models;
+using Hospital_MVC.Models.Identity;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -79,43 +79,47 @@ namespace MVCOrderManagmentUi.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Login(UserLoginDTO loginDTO)
         {
-            if (ModelState.IsValid)
-            {
-                var user = await userManager.FindByEmailAsync(loginDTO.Email);
-                if (user != null && !user.EmailConfirmed)
-                {
-                    ModelState.AddModelError("message", "Email not confimred yet!");
-                    return View(loginDTO);
-                }
-                if (await userManager.CheckPasswordAsync(user, loginDTO.Password) == false)
-                {
-                    ModelState.AddModelError("message", "Invalid credentials");
-                    return View(loginDTO);
-                }
 
-                var result = await signInManager.PasswordSignInAsync(user.UserName, loginDTO.Password, loginDTO.RememberMe, false);
-                if (result.Succeeded)
+                if (ModelState.IsValid)
                 {
-                    await userManager.AddClaimAsync(user, new Claim("UserRole", "Admin"));
-                    return RedirectToAction("ShowDashboard", "Dashboard");
+                    var user = await userManager.FindByEmailAsync(loginDTO.Email);
+                    if (user != null && !user.EmailConfirmed)
+                    {
+                        ModelState.AddModelError("message", "Email not confimred yet!");
+                        return View(loginDTO);
+                    }
+                    if (await userManager.CheckPasswordAsync(user, loginDTO.Password) == false)
+                    {
+                        ModelState.AddModelError("message", "Invalid credentials");
+                        return View(loginDTO);
+                    }
+
+                    var result = await signInManager.PasswordSignInAsync(user.UserName, loginDTO.Password, loginDTO.RememberMe, false);
+                    if (result.Succeeded)
+                    {
+                        await userManager.AddClaimAsync(user, new Claim("UserRole", "Admin"));
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else if (result.IsLockedOut)
+                    {
+                        return View("AccountLocked");
+                    }
+                    else if (result.IsNotAllowed)
+                    {
+                        ModelState.AddModelError("message", "Account Disabled");
+                        return View(loginDTO);
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("message", "Invalid login Attempt");
+                        return View(loginDTO);
+                    }
                 }
-                else if (result.IsLockedOut)
-                {
-                    return View("AccountLocked");
-                }
-                else if (result.IsNotAllowed)
-                {
-                    ModelState.AddModelError("message", "Account Disabled");
-                    return View(loginDTO);
-                }
-                else
-                {
-                    ModelState.AddModelError("message", "Invalid login Attempt");
-                    return View(loginDTO);
-                }
+                return View(loginDTO);
+
             }
-            return View(loginDTO);
-        }
+
+        
         public async Task<IActionResult> Logout()
         {
             await signInManager.SignOutAsync();

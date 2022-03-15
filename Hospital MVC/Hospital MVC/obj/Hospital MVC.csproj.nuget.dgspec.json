@@ -1,30 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "A:\\Users\\chris\\source\\repos\\Hospital MVC\\Hospital MVC\\Hospital MVC.csproj": {}
+    "C:\\Users\\sixha\\Source\\Repos\\MVC_Hospital3\\Hospital MVC\\Hospital MVC\\Hospital MVC.csproj": {}
   },
   "projects": {
-    "A:\\Users\\chris\\source\\repos\\Hospital MVC\\Hospital MVC\\Hospital MVC.csproj": {
+    "C:\\Users\\sixha\\Source\\Repos\\MVC_Hospital3\\Hospital MVC\\Hospital MVC\\Hospital MVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "A:\\Users\\chris\\source\\repos\\Hospital MVC\\Hospital MVC\\Hospital MVC.csproj",
+        "projectUniqueName": "C:\\Users\\sixha\\Source\\Repos\\MVC_Hospital3\\Hospital MVC\\Hospital MVC\\Hospital MVC.csproj",
         "projectName": "Hospital MVC",
-        "projectPath": "A:\\Users\\chris\\source\\repos\\Hospital MVC\\Hospital MVC\\Hospital MVC.csproj",
-        "packagesPath": "A:\\Users\\chris\\.nuget\\packages\\",
-        "outputPath": "A:\\Users\\chris\\source\\repos\\Hospital MVC\\Hospital MVC\\obj\\",
+        "projectPath": "C:\\Users\\sixha\\Source\\Repos\\MVC_Hospital3\\Hospital MVC\\Hospital MVC\\Hospital MVC.csproj",
+        "packagesPath": "C:\\Users\\sixha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sixha\\Source\\Repos\\MVC_Hospital3\\Hospital MVC\\Hospital MVC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "A:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "A:\\Users\\chris\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "A:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\sixha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "A:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -82,6 +83,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[5.0.12, 5.0.12]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -90,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "A:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,6 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@inject SignInManager<Hospital_MVC.Models.AppUser> SIgnInManager
-@inject UserManager<Hospital_MVC.Models.AppUser> UserManager
+@inject SignInManager<Hospital_MVC.Models.Identity.AppUser> SIgnInManager
+@inject UserManager<Hospital_MVC.Models.Identity.AppUser> UserManager
 
 <ul class="navbar-nav">
     @if (SIgnInManager.IsSignedIn(User))
@@ -10,18 +10,18 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link btn btn-link text-dark" asp-controller="account" asp-action="Logout">Logout</a>
+            <a class="nav-link btn btn-link text-dark" asp-controller="Account" asp-action="Logout">Logout</a>
         </li>
 
     }
     else
     {
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-controller="account" asp-action="Register">Register</a>
+            <a class="nav-link text-dark" asp-controller="Account" asp-action="Register">Register</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-controller="account" asp-action="login">Login</a>
+            <a class="nav-link text-dark" asp-controller="Account" asp-action="Login">Login</a>
         </li>
 
     }
